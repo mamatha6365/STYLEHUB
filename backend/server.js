@@ -22,15 +22,6 @@ app.get("/api", (req, res) => {
     });
 });
 
-/* MongoDB connection */
-mongoose.connect(process.env.MONGO_URI)
-    .then(() => {
-        console.log("MongoDB connected");
-    })
-    .catch(error => {
-        console.log("MongoDB connection error:", error.message);
-    });
-
 /* Routes */
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/products", require("./routes/products"));
@@ -42,6 +33,15 @@ app.get("*", (req, res) => {
         path.join(__dirname, "../frontend/index.html")
     );
 });
+
+/* MongoDB Connection */
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => {
+        console.log("MongoDB connected successfully");
+    })
+    .catch(error => {
+        console.log("MongoDB connection error:", error.message);
+    });
 
 const PORT = process.env.PORT || 5000;
 
