@@ -1,0 +1,54 @@
+
+/* STYLEHUB ACCOUNT */
+
+.account-section {
+    min-height: 70vh;
+}
+
+.account-card {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 30px;
+
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.account-card h2 {
+    margin-bottom: 25px;
+}
+
+.account-card p {
+    padding: 12px 0;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.account-card a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #E91E63;
+    font-weight: bold;
+}
+
+.account-card button {
+    display: block;
+    margin-top: 20px;
+    background: #1A1A2E;
+}
+
+.account-card button:hover {
+    background: #E91E63;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .account-card {
+        width: 94%;
+        padding: 20px;
+    }
+}

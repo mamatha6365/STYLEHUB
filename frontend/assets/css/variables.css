@@ -1,0 +1,24 @@
+
+/* STYLEHUB VARIABLES */
+
+:root {
+    --pink: #E91E63;
+    --pink-dark: #C2185B;
+    --pink-light: #FCE4EC;
+
+    --dark: #1A1A2E;
+    --white: #FFFFFF;
+    --gray: #666666;
+    --light: #F7F7F7;
+    --border: #DDDDDD;
+
+    --gold: #D4AF37;
+    --success: #198754;
+    --danger: #DC3545;
+
+    --max-width: 1200px;
+    --radius: 8px;
+    --shadow: 0 4px 15px rgba(0,0,0,.08);
+
+    --font: Arial, sans-serif;
+}

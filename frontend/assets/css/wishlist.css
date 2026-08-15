@@ -1,0 +1,69 @@
+
+/* STYLEHUB WISHLIST */
+
+.wishlist-section {
+    min-height: 70vh;
+}
+
+.wishlist-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.wishlist-card {
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.wishlist-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.wishlist-card h3,
+.wishlist-card p {
+    margin: 12px 15px;
+}
+
+.wishlist-card p {
+    color: #E91E63;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.wishlist-card a {
+    display: block;
+    margin: 10px 15px;
+    color: #E91E63;
+    font-weight: bold;
+}
+
+.wishlist-card button {
+    margin: 10px 15px 20px;
+    background: #1A1A2E;
+}
+
+.wishlist-card button:hover {
+    background: #E91E63;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .wishlist-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .wishlist-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,60 @@
+
+/* STYLEHUB AUTH */
+
+.auth-section {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F7F7F7;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 450px;
+    padding: 35px;
+
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.auth-box h1 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.auth-box label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+}
+
+.auth-box button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.auth-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.auth-link a {
+    color: #E91E63;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 500px) {
+
+    .auth-box {
+        width: 92%;
+        padding: 25px;
+    }
+
+    .auth-section {
+        min-height: 70vh;
+    }
+}

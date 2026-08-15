@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StyleHub | Shop</title>
+
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/products.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="navbar-container">
+
+        <a href="index.html" class="logo">
+            Style<span>Hub</span>
+        </a>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="nav-actions">
+
+            <a href="login.html" class="nav-icon">
+                Account
+            </a>
+
+            <a href="wishlist.html" class="nav-icon">
+                ♡
+            </a>
+
+            <a href="cart.html" class="nav-icon">
+                🛒
+                <span class="cart-count"
+                      data-cart-count>0</span>
+            </a>
+
+            <button id="menuButton">☰</button>
+
+        </div>
+
+    </div>
+
+    <div id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="products.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+
+</header>
+
+
+<section class="page-header">
+
+    <div class="container">
+
+        <span class="badge">STYLEHUB COLLECTION</span>
+
+        <h1>Shop Fashion</h1>
+
+        <p>
+            Discover stylish fashion for everyone.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <div class="container">
+
+        <form id="filterForm"
+              class="filter-bar">
+
+            <input
+                id="search"
+                type="search"
+                placeholder="Search products...">
+
+            <select id="category">
+
+                <option value="">
+                    All Categories
+                </option>
+
+                <option value="Men">
+                    Men
+                </option>
+
+                <option value="Women">
+                    Women
+                </option>
+
+                <option value="Kids">
+                    Kids
+                </option>
+
+            </select>
+
+            <button type="submit">
+                Filter
+            </button>
+
+        </form>
+
+
+        <div id="productGrid"
+             class="product-grid">
+
+            <p>Loading products...</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div>
+            <h2 class="footer-logo">
+                Style<span>Hub</span>
+            </h2>
+
+            <p>
+                Premium fashion for modern lifestyles.
+            </p>
+        </div>
+
+        <div>
+            <h3>Shop</h3>
+
+            <ul class="footer-links">
+                <li>
+                    <a href="products.html">
+                        All Products
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html?category=Men">
+                        Men
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html?category=Women">
+                        Women
+                    </a>
+                </li>
+
+                <li>
+                    <a href="products.html?category=Kids">
+                        Kids
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Company</h3>
+
+            <ul class="footer-links">
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="contact.html">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            © <span data-year></span>
+            StyleHub. All Rights Reserved.
+        </p>
+    </div>
+
+</footer>
+
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/navbar.js"></script>
+<script src="assets/js/footer.js"></script>
+<script src="assets/js/products.js"></script>
+<script src="assets/js/filter.js"></script>
+<script src="assets/js/wishlist.js"></script>
+
+</body>
+</html>

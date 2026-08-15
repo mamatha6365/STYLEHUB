@@ -1,0 +1,53 @@
+
+/* STYLEHUB PRODUCT DETAILS */
+
+.product-detail {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.product-detail > img {
+    width: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-detail h1 {
+    margin: 10px 0;
+}
+
+.product-detail h2 {
+    color: #E91E63;
+    margin-bottom: 20px;
+}
+
+.product-detail label {
+    display: block;
+    margin: 20px 0 8px;
+    font-weight: bold;
+}
+
+.product-detail select {
+    max-width: 250px;
+}
+
+.product-detail button {
+    margin-top: 25px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .product-detail {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .product-detail > img {
+        max-height: 450px;
+    }
+}

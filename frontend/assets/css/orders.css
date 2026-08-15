@@ -1,0 +1,61 @@
+
+/* STYLEHUB ORDERS */
+
+.orders-section {
+    min-height: 70vh;
+}
+
+.orders-list {
+    max-width: 900px;
+    margin: auto;
+}
+
+.order-card {
+    margin-bottom: 20px;
+    padding: 25px;
+
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.order-card h3 {
+    color: #1A1A2E;
+    margin-bottom: 12px;
+}
+
+.order-card strong {
+    color: #E91E63;
+}
+
+.order-card button {
+    margin-top: 15px;
+    background: #DC3545;
+}
+
+.order-card button:hover {
+    background: #B02A37;
+}
+
+.order-status {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+
+    background: #FCE4EC;
+    color: #E91E63;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .order-card {
+        padding: 18px;
+    }
+}

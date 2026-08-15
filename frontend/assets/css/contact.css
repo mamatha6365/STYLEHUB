@@ -1,0 +1,63 @@
+
+/* STYLEHUB CONTACT */
+
+.contact-section {
+    min-height: 70vh;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-info {
+    padding: 30px;
+    background: #1A1A2E;
+    border-radius: 10px;
+}
+
+.contact-info h2 {
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    color: #DDDDDD;
+    margin-bottom: 15px;
+}
+
+.contact-info span {
+    color: #E91E63;
+}
+
+.contact-form {
+    padding: 30px;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+}
+
+.contact-form label {
+    display: block;
+    margin: 12px 0 6px;
+    font-weight: bold;
+}
+
+.contact-form button {
+    margin-top: 20px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 20px;
+    }
+}

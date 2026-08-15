@@ -1,0 +1,55 @@
+
+/* STYLEHUB CHECKOUT */
+
+.checkout-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+}
+
+.checkout-form {
+    padding: 30px;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 8px;
+}
+
+.checkout-form h2 {
+    margin-bottom: 20px;
+}
+
+.checkout-form label {
+    display: block;
+    margin: 15px 0 6px;
+    font-weight: bold;
+}
+
+.checkout-form button {
+    margin-top: 25px;
+}
+
+.checkout-summary {
+    height: fit-content;
+    padding: 25px;
+    background: #FCE4EC;
+    border-radius: 8px;
+}
+
+.checkout-summary h2 {
+    margin-bottom: 15px;
+}
+
+.checkout-total {
+    color: #E91E63;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+}

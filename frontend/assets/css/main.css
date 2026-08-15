@@ -1,0 +1,276 @@
+
+/* =========================================
+   STYLEHUB - MAIN CSS
+   Premium Fashion E-Commerce
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #FFFFFF;
+    color: #1A1A2E;
+    line-height: 1.6;
+}
+
+/* CONTAINER */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* HEADINGS */
+
+h1,
+h2,
+h3 {
+    color: #1A1A2E;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+/* TEXT */
+
+p {
+    color: #666666;
+}
+
+a {
+    color: #1A1A2E;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #E91E63;
+}
+
+/* BUTTONS */
+
+button,
+.btn {
+    display: inline-block;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background: #E91E63;
+    color: #FFFFFF;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover,
+.btn:hover {
+    background: #C2185B;
+    transform: translateY(-2px);
+}
+
+/* GOLD BUTTON */
+
+.btn-gold {
+    background: #D4AF37;
+    color: #1A1A2E;
+}
+
+.btn-gold:hover {
+    background: #B8941F;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 70px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    margin-bottom: 10px;
+}
+
+.section-title span {
+    color: #E91E63;
+    font-weight: 600;
+}
+
+/* CARDS */
+
+.card {
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/* IMAGES */
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.image-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* PRODUCT GRID */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+/* PRODUCT CARD */
+
+.product-card {
+    background: #FFFFFF;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.product-card h3,
+.product-card p,
+.product-card strong {
+    margin: 12px 15px;
+}
+
+.product-card strong {
+    display: block;
+    color: #E91E63;
+    font-size: 20px;
+}
+
+/* FORM */
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #DDDDDD;
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #E91E63;
+}
+
+/* BADGE */
+
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    background: #FCE4EC;
+    color: #E91E63;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* GOLD ACCENT */
+
+.gold {
+    color: #D4AF37;
+}
+
+/* DARK SECTION */
+
+.dark-section {
+    background: #1A1A2E;
+    color: #FFFFFF;
+}
+
+.dark-section h2,
+.dark-section h3 {
+    color: #FFFFFF;
+}
+
+.dark-section p {
+    color: #DDDDDD;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 992px) {
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    section {
+        padding: 45px 0;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    button,
+    .btn {
+        width: 100%;
+    }
+}

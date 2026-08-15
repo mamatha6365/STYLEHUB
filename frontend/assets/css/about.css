@@ -1,0 +1,71 @@
+
+/* STYLEHUB ABOUT */
+
+.about-hero {
+    padding: 80px 0;
+    background: #1A1A2E;
+    text-align: center;
+}
+
+.about-hero h1 {
+    color: #FFFFFF;
+}
+
+.about-hero span {
+    color: #E91E63;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-content img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.about-content h2 {
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+}
+
+.about-values {
+    background: #FCE4EC;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.value-card {
+    padding: 30px;
+    background: #FFFFFF;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.value-card h3 {
+    color: #E91E63;
+    margin-bottom: 10px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+}
