@@ -1,9 +1,10 @@
+const dns = require("dns");
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const path = require("path");
-
 dotenv.config();
 
 const app = express();
@@ -33,9 +34,8 @@ app.get("*", (req, res) => {
         path.join(__dirname, "../frontend/index.html")
     );
 });
-
 /* MongoDB Connection */
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         console.log("MongoDB connected successfully");
     })
