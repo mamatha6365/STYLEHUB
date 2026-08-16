@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!box) return;
 
     const result =
-        await StyleHubAPI.get("/products");
+        await StyleHubAPI.get("products");
 
     if (!result.success) {
         box.innerHTML =

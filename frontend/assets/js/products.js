@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const result =
-        await StyleHubAPI.get(`/products/${id}`);
+        await StyleHubAPI.get(`products/${id}`);
 
     if (!result.success) {
         box.innerHTML = "<p>Product not found.</p>";
