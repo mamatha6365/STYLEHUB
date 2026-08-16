@@ -3,8 +3,7 @@
    STYLEHUB API
 ========================================= */
 
-const API_URL = "http://localhost:5000/api";
-
+const API_URL = "/api/";
 
 /* GET DATA */
 async function apiGet(url) {
