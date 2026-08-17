@@ -3,8 +3,7 @@
    STYLEHUB API
 ========================================= */
 
-const API_URL = "/api/";
-
+const API_URL = "https://stylehub-backend-fybo.onrender.com/api";
 /* GET DATA */
 async function apiGet(url) {
 
