@@ -1,86 +1,49 @@
 /* STYLEHUB PRODUCT DETAILS */
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", loadProduct);
+
+async function loadProduct() {
 
     const box = document.querySelector("#productDetails");
-
-    if (!box) return;
-
     const id = new URLSearchParams(location.search).get("id");
 
-    console.log("Product ID:", id);
+    const result = await StyleHubAPI.get(`/products/${id}`);
+    const product = result.product;
 
-    if (!id) {
-        box.innerHTML = "<p>Product not found.</p>";
-        return;
-    }
+    box.innerHTML = `
+        <div class="product-detail">
 
-    try {
+            <img src="${product.image}" alt="${product.name}">
 
-        const result = await StyleHubAPI.get(`/products/${id}`);
+            <div>
+                <p>${product.brand}</p>
+                <h1>${product.name}</h1>
+                <h2>₹${product.price}</h2>
+                <p>${product.description}</p>
 
-        console.log("Product result:", result);
+                <label>Size</label>
 
-        if (!result.success || !result.product) {
-            box.innerHTML = "<p>Product not found.</p>";
-            return;
-        }
+                <select id="size">
+                    ${product.sizes.map(size => `<option>${size}</option>`).join("")}
+                </select>
 
-        const product = result.product;
+                <label>Color</label>
 
-        box.innerHTML = `
-            <div class="product-detail">
+                <select id="color">
+                    ${product.colors.map(color => `<option>${color}</option>`).join("")}
+                </select>
 
-                <img src="${product.image}"
-                     alt="${product.name}">
-
-                <div>
-
-                    <p>${product.brand}</p>
-
-                    <h1>${product.name}</h1>
-
-                    <h2>₹${product.price}</h2>
-
-                    <p>${product.description}</p>
-
-                    <label>Size</label>
-
-                    <select id="size">
-                        ${product.sizes.map(size =>
-                            `<option>${size}</option>`
-                        ).join("")}
-                    </select>
-
-                    <label>Color</label>
-
-                    <select id="color">
-                        ${product.colors.map(color =>
-                            `<option>${color}</option>`
-                        ).join("")}
-                    </select>
-
-                    <button id="addProduct">
-                        Add to Cart
-                    </button>
-
-                </div>
-
+                <button id="addProduct">
+                    Add to Cart
+                </button>
             </div>
-        `;
 
-        document.querySelector("#addProduct").onclick = () => {
-            addProduct(product);
-        };
+        </div>
+    `;
 
-    } catch (error) {
-
-        console.error("Product loading error:", error);
-
-        box.innerHTML =
-            "<p>Unable to load product.</p>";
-    }
-});
+    document.querySelector("#addProduct").onclick =
+        () => addProduct(product);
+}
 
 
 function addProduct(product) {
@@ -89,42 +52,20 @@ function addProduct(product) {
         localStorage.getItem("stylehub_cart") || "[]"
     );
 
-    const size = document.querySelector("#size").value;
-    const color = document.querySelector("#color").value;
-
-    const item = cart.find(
-        item =>
-            item.product === product._id &&
-            item.size === size &&
-            item.color === color
-    );
-
-    if (item) {
-
-        item.quantity++;
-
-    } else {
-
-        cart.push({
-            product: product._id,
-            name: product.name,
-            image: product.image,
-            price: product.price,
-            size,
-            color,
-            quantity: 1
-        });
-
-    }
+    cart.push({
+        product: product._id,
+        name: product.name,
+        image: product.image,
+        price: product.price,
+        size: document.querySelector("#size").value,
+        color: document.querySelector("#color").value,
+        quantity: 1
+    });
 
     localStorage.setItem(
         "stylehub_cart",
         JSON.stringify(cart)
     );
-
-    if (typeof updateCartCount === "function") {
-        updateCartCount();
-    }
 
     alert("Product added to cart!");
 }
