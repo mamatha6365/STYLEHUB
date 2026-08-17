@@ -1,4 +1,3 @@
-
 /* STYLEHUB HOME */
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -7,40 +6,56 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!box) return;
 
-    const result =
-        await StyleHubAPI.get("products");
+    try {
 
-    if (!result.success) {
+        const result = await StyleHubAPI.get("/products");
+
+        console.log("Home products:", result);
+
+        if (!result.success || !Array.isArray(result.products)) {
+            box.innerHTML = "<p>Unable to load products.</p>";
+            return;
+        }
+
+        if (result.products.length === 0) {
+            box.innerHTML = "<p>No products available.</p>";
+            return;
+        }
+
+        const products = result.products.slice(0, 8);
+
+        box.innerHTML = products.map(product => `
+            
+            <div class="product-card">
+
+                <img src="${product.image}"
+                     alt="${product.name}">
+
+                <h3>${product.name}</h3>
+
+                <p>${product.brand}</p>
+
+                <strong>₹${product.price}</strong>
+
+                <a href="product.html?id=${product._id}">
+                    View Product
+                </a>
+
+                <button onclick='addHomeCart(${JSON.stringify(product)})'>
+                    Add to Cart
+                </button>
+
+            </div>
+
+        `).join("");
+
+    } catch (error) {
+
+        console.error("Home products error:", error);
+
         box.innerHTML =
             "<p>Unable to load products.</p>";
-        return;
     }
-
-    const products =
-        result.products.slice(0, 8);
-
-    box.innerHTML = products.map(product => `
-        <div class="product-card">
-
-            <img src="${product.image}"
-                 alt="${product.name}">
-
-            <h3>${product.name}</h3>
-
-            <p>${product.brand}</p>
-
-            <strong>₹${product.price}</strong>
-
-            <a href="product.html?id=${product._id}">
-                View Product
-            </a>
-
-            <button onclick='addHomeCart(${JSON.stringify(product)})'>
-                Add to Cart
-            </button>
-
-        </div>
-    `).join("");
 });
 
 
@@ -55,8 +70,11 @@ function addHomeCart(product) {
     );
 
     if (item) {
+
         item.quantity++;
+
     } else {
+
         cart.push({
             product: product._id,
             name: product.name,
@@ -64,6 +82,7 @@ function addHomeCart(product) {
             price: product.price,
             quantity: 1
         });
+
     }
 
     localStorage.setItem(
@@ -71,7 +90,9 @@ function addHomeCart(product) {
         JSON.stringify(cart)
     );
 
-    updateCartCount();
+    if (typeof updateCartCount === "function") {
+        updateCartCount();
+    }
 
     alert("Added to cart!");
 }
