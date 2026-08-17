@@ -1,104 +1,86 @@
-/* STYLEHUB PRODUCT DETAILS */
+/* STYLEHUB PRODUCTS */
 
 document.addEventListener("DOMContentLoaded", async () => {
 
-    const box = document.querySelector("#productDetails");
+    const grid = document.querySelector("#productGrid");
 
-    if (!box) return;
+    if (!grid) return;
 
-    const id =
-        new URLSearchParams(location.search).get("id");
+    try {
 
-    if (!id) {
-        box.innerHTML = "<p>Product not found.</p>";
-        return;
-    }
+        const result = await StyleHubAPI.get("/products");
 
-    const result =
-        await StyleHubAPI.get(`products/${id}`);
+        console.log("Products API result:", result);
 
-    if (!result.success) {
-        box.innerHTML = "<p>Product not found.</p>";
-        return;
-    }
+        if (!result.success || !Array.isArray(result.products)) {
+            grid.innerHTML = "<p>Unable to load products.</p>";
+            return;
+        }
 
-    const product = result.product;
+        if (result.products.length === 0) {
+            grid.innerHTML = "<p>No products available.</p>";
+            return;
+        }
 
-    box.innerHTML = `
-        <div class="product-detail">
+        grid.innerHTML = result.products.map(product => `
+            
+            <div class="product-card">
 
-            <img src="${product.image}"
-                 alt="${product.name}">
+                <img src="${product.image}"
+                     alt="${product.name}">
 
-            <div>
+                <h3>${product.name}</h3>
+
                 <p>${product.brand}</p>
 
-                <h1>${product.name}</h1>
+                <strong>₹${product.price}</strong>
 
-                <h2>₹${product.price}</h2>
+                <a href="product.html?id=${product._id}">
+                    View Product
+                </a>
 
-                <p>${product.description}</p>
-
-                <label>Size</label>
-
-                <select id="size">
-                    ${product.sizes.map(size =>
-                        `<option>${size}</option>`
-                    ).join("")}
-                </select>
-
-                <label>Color</label>
-
-                <select id="color">
-                    ${product.colors.map(color =>
-                        `<option>${color}</option>`
-                    ).join("")}
-                </select>
-
-                <button id="addProduct">
+                <button onclick='addToCart(${JSON.stringify(product)})'>
                     Add to Cart
                 </button>
 
             </div>
-        </div>
-    `;
 
-    document.querySelector("#addProduct")
-        .onclick = () => addProduct(product);
+        `).join("");
+
+    } catch (error) {
+
+        console.error("Products loading error:", error);
+
+        grid.innerHTML =
+            "<p>Unable to load products. Please try again.</p>";
+    }
 });
 
 
-function addProduct(product) {
+function addToCart(product) {
 
     const cart = JSON.parse(
         localStorage.getItem("stylehub_cart") || "[]"
     );
 
-    const size =
-        document.querySelector("#size").value;
-
-    const color =
-        document.querySelector("#color").value;
-
-    const item = cart.find(
-        item =>
-            item.product === product._id &&
-            item.size === size &&
-            item.color === color
+    const existing = cart.find(
+        item => item.product === product._id
     );
 
-    if (item) {
-        item.quantity++;
+    if (existing) {
+
+        existing.quantity++;
+
     } else {
+
         cart.push({
             product: product._id,
             name: product.name,
             image: product.image,
             price: product.price,
-            size,
-            color,
             quantity: 1
         });
+
     }
 
     localStorage.setItem(
@@ -106,5 +88,9 @@ function addProduct(product) {
         JSON.stringify(cart)
     );
 
-    alert("Product added to cart!");
+    if (typeof updateCartCount === "function") {
+        updateCartCount();
+    }
+
+    alert("Added to cart!");
 }
